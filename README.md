@@ -1,14 +1,23 @@
 # RoundingWell Guides
 
-## Javascript Style Guide
+## <a name='TOC'>Table of Contents</a>
+
+  1. [Javascript Style Guide](#javascript-style-guide)
+  1. [Javascript Organization](#javascript-organization)
+  1. [LESS/CSS Style Guide](#lesscss-style-guide)
+  1. [LESS/CSS Organization](#lesscss-organization)
+  1. [Font Icon](#font-icon)
+  1. [Design Specifications](#design-specifications)
+
+## <a name='javascript-style-guide'>Javascript Style Guide</a>
 
 [RoundingWell Javascript Style Guide](https://github.com/RoundingWell/style-guides/blob/master/javascript.md)
 
 *A mostly reasonable approach to JavaScript based on javascript by airbnb*
 
----
+**[[⬆]](#TOC)**
 
-## Javascript Organization
+## <a name='javascript-organization'>Javascript Organization</a>
 
 Ideally app specific code and exceptions only exist at the lowest level. For example:  Global -> Desktop Global -> Desktop Provider
 If at all possible no code specifically related to the provider side desktop app should be found in either Desktop Global or Global.
@@ -38,15 +47,17 @@ If at all possible no code specifically related to the provider side desktop app
 + **patient.js** *(objPatient)* - Any js shared by desktop and mobile provider apps
 + **tests.js** - Some tests for the weight algorithm
 
----
+**[[⬆]](#TOC)**
 
-## LESS/CSS Style Guide
+
+## <a name='lesscss-style-guide'>LESS/CSS Style Guide</a>
 
 [RoundingWell LESS/CSS Style Guide](https://github.com/RoundingWell/style-guides/blob/master/lesscss.md)
 
----
+**[[⬆]](#TOC)**
 
-## LESS/CSS Organization
+
+## <a name='lesscss-organzation'>LESS/CSS Organization</a>
 
 All shared less files are imported by apps and not accessed directly.  If any changes are made to a shared less file, the app LESS file must have the modified date changed to trigger a new asset merge
 
@@ -85,9 +96,10 @@ All shared less files are imported by apps and not accessed directly.  If any ch
 + **mobile-patient.less**
 + **ie-all-provider.less**
 
----
+**[[⬆]](#TOC)**
 
-## Font Icon
+
+## <a name='font-icon'>Font Icon</a>
 
 *Instructions for updating and maintaining*
 
@@ -106,6 +118,12 @@ Update any modified .font-icon- classes at the bottom of @font-face
 Update icons object lte-ie7.js in shared js  [DEPRECATED]
 Copy font files to shared/font/roundingwell
 
----
+**[[⬆]](#TOC)**
 
-## Design
+
+## <a name='design-specifications'>Design Specifications</a>
+
+*TODO*
+
+**[[⬆]](#TOC)**
+
