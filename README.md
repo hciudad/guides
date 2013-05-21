@@ -2,6 +2,12 @@
 
 ## Javascript Style Guide
 
+[RoundingWell Javascript Style Guide](https://github.com/RoundingWell/style-guides/blob/master/javascript.md)
+
+*A mostly reasonable approach to JavaScript based on javascript by airbnb*
+
+---
+
 ## Javascript Organization
 
 Ideally app specific code and exceptions only exist at the lowest level. For example:  Global -> Desktop Global -> Desktop Provider
@@ -32,7 +38,7 @@ If at all possible no code specifically related to the provider side desktop app
 + **patient.js** *(objPatient)* - Any js shared by desktop and mobile provider apps
 + **tests.js** - Some tests for the weight algorithm
 
-----
+---
 
 ## LESS/CSS Style Guide
 
