@@ -42,6 +42,10 @@ If at all possible no code specifically related to the provider side desktop app
 
 ## LESS/CSS Style Guide
 
+[RoundingWell LESS/CSS Style Guide](https://github.com/RoundingWell/style-guides/blob/master/lesscss.md)
+
+---
+
 ## LESS/CSS Organization
 
 ## Font Icon
