@@ -929,57 +929,24 @@
     }
     ```
 
-  - Use camelCase when naming objects, functions, and instances
+  - Use snake_case when naming objects, functions, and instances
 
     ```javascript
     // bad
     var OBJEcttsssss = {};
-    var this_is_my_object = {};
+    var thisIsMyObject = {};
     var this-is-my-object = {};
     function c() {};
-    var u = new user({
+    var u = new User({
       name: 'Bob Parr'
     });
 
     // good
-    var thisIsMyObject = {};
-    function thisIsMyFunction() {};
-    var user = new User({
+    var this_is_my_object = {};
+    function this_is_my_function() {};
+    var user = new user({
       name: 'Bob Parr'
     });
-    ```
-
-  - Use PascalCase when naming constructors or classes
-
-    ```javascript
-    // bad
-    function user(options) {
-      this.name = options.name;
-    }
-
-    var bad = new user({
-      name: 'nope'
-    });
-
-    // good
-    function User(options) {
-      this.name = options.name;
-    }
-
-    var good = new User({
-      name: 'yup'
-    });
-    ```
-
-  - Use a leading underscore `_` when naming private properties
-
-    ```javascript
-    // bad
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
-
-    // good
-    this._firstName = 'Panda';
     ```
 
   - When saving a reference to `this` use `_this`.
