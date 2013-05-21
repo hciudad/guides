@@ -1,6 +1,6 @@
-# Airbnb JavaScript Style Guide() {
+# RoundingWell JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*A mostly reasonable approach to JavaScript based on javascript by airbnb*
 
 
 ## <a name='TOC'>Table of Contents</a>
