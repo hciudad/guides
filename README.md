@@ -48,6 +48,45 @@ If at all possible no code specifically related to the provider side desktop app
 
 ## LESS/CSS Organization
 
+All shared less files are imported by apps and not accessed directly.  If any changes are made to a shared less file, the app LESS file must have the modified date changed to trigger a new asset merge
+
+### mainapp LESS (/opt/code/mainapp/assets/less)
++ **desktop-provder.less**
++ **mobile-provider.less**
++ **ie-all-provider.less**
+
+### shared LESS (/opt/code/shared/assets/less)
++ **alert-dialog.less**
++ **buttons.less**
++ **desktop-forms.less**
++ **desktop.less**
++ **error-page.less**
++ **font-icons.less**
++ **global.less**
++ **grid.less**
++ **icons.less**
++ **ie-all.less**
++ **messaging.less**
++ **mixins.less**
++ **mobile-animations.less**
++ **mobile-forms.less**
++ **mobile.less**
++ **modals.less**
++ **pretty-inputs.less**
++ **progress-bar.less**
++ **tablet.less**
++ **tabs.less**
++ **tooltips.less**
++ **variables.less**
++ **zebra-datepicker.less**
+
+### surveyapp LESS (/opt/code/surveyapp/assets/less)
++ **desktop-patient.less**
++ **mobile-patient.less**
++ **ie-all-provider.less**
+
+---
+
 ## Font Icon
 
 ## Design
