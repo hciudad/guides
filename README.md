@@ -11,7 +11,7 @@
 
 ## <a name='javascript-style-guide'>Javascript Style Guide</a>
 
-[RoundingWell Javascript Style Guide](https://github.com/RoundingWell/style-guides/blob/master/javascript.md)
+[RoundingWell Javascript Style Guide](https://github.com/RoundingWell/guides/blob/master/javascript.md)
 
 *A mostly reasonable approach to JavaScript based on javascript by airbnb*
 
@@ -52,7 +52,7 @@ If at all possible no code specifically related to the provider side desktop app
 
 ## <a name='lesscss-style-guide'>LESS/CSS Style Guide</a>
 
-[RoundingWell LESS/CSS Style Guide](https://github.com/RoundingWell/style-guides/blob/master/lesscss.md)
+[RoundingWell LESS/CSS Style Guide](https://github.com/RoundingWell/guides/blob/master/lesscss.md)
 
 **[[⬆]](#TOC)**
 
