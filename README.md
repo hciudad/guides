@@ -89,4 +89,23 @@ All shared less files are imported by apps and not accessed directly.  If any ch
 
 ## Font Icon
 
+*Instructions for updating and maintaining*
+
+[http://icomoon.io/app/#browse](http://icomoon.io/app/#browse)
+
+You may need to reimport the roundingwell.dev.svg font found in the fonts folder on dropbox
+
+Inside the source icon svgs there's a [template pdf](https://www.dropbox.com/s/kneekii66xs7px6/template.pdf?v=1mcis) for making new SVGs.  You should use SVG 1.0 format when saving and the vector should be a single color path or compound path with no stroke.
+
+Fonts are relatively organized by character codes.
+
+When making an update you should:
+
+Download the font and replace all of the files in dropbox.
+Update any modified .font-icon- classes at the bottom of @font-face
+Update icons object lte-ie7.js in shared js  [DEPRECATED]
+Copy font files to shared/font/roundingwell
+
+---
+
 ## Design
