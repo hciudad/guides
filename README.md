@@ -113,10 +113,10 @@ Fonts are relatively organized by character codes.
 
 When making an update you should:
 
-Download the font and replace all of the files in dropbox.
-Update any modified .font-icon- classes at the bottom of @font-face
-Update icons object lte-ie7.js in shared js  [DEPRECATED]
-Copy font files to shared/font/roundingwell
++ Download the font and replace all of the files in dropbox.
++ Update any modified .font-icon- classes at the bottom of @font-face
++ Update icons object lte-ie7.js in shared js  [DEPRECATED]
++ Copy font files to shared/font/roundingwell
 
 **[[⬆]](#TOC)**
 
