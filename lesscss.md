@@ -25,7 +25,8 @@
 		line-height: 1.4;		/* line-height should not be given units */
 		padding: 10px 5px 0;	/* shorthand should be used when possible */
 	}
-    a{ text-decoration: underline; } /* selectors with only one property should be listed on one line (selector[curly][space][property...;][space][close curly]) */
+    a{ text-decoration: underline; } /* selectors with only one property should be listed on one line */
+    								 /* (selector[curly][space][property...;][space][close curly]) */
 } /* /.selector */ /* large blocks should have /end comments following the close curly */
 ```
 
@@ -37,7 +38,10 @@
   - [Scalable and Modular Architecture for CSS](http://smacss.com/)
 
 **Other Styleguides**
+  - [Github CSS Styleguide](https://github.com/styleguide/css)
   - [Google HTML/CSS Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml#CSS_Style_Rules)
+
+  > Use ID and class names that are as short as possible but as long as necessary.
   - [Principles of writing consistent, idiomatic CSS](https://github.com/necolas/idiomatic-css)
   - [Thinkup - Code Style Guide: CSS](https://github.com/ginatrapani/ThinkUp/wiki/Code-Style-Guide:-CSS)
 
