@@ -37,7 +37,7 @@
 **Read This**
   - [Scalable and Modular Architecture for CSS](http://smacss.com/)
 
-**Other Styleguides**
+**Other Style Guides**
   - [Github CSS Styleguide](https://github.com/styleguide/css)
   - [Google HTML/CSS Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml#CSS_Style_Rules)
 
