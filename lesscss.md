@@ -5,8 +5,8 @@
 ## <a name='TOC'>Table of Contents</a>
 
   1. [Example](#example)
-  1. [Resources](#resources)
   1. [Font Sizing](#font-sizing)
+  1. [Resources](#resources)
   1. [License](#license)
 
 ## <a name='example'>Example</a>
@@ -33,7 +33,7 @@
 
   **[[⬆]](#TOC)**
 
-## <a name='resources'>Font Sizing</a>
+## <a name='font-sizing'>Font Sizing</a>
 
 Rather than using px or em for font sizing, use rem which stands for "root em".  The rem is relative to the html tag rather than the parent, helping to prevent unwanted em cascading.
 
