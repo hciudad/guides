@@ -190,21 +190,57 @@ Taken from style guides for: airbnb, kohana, pear
 
 ## <a name='naming-conventions'>Naming Conventions</a>
 
-  - Avoid single letter names. Be descriptive with your naming.
+  - **Avoid single letter names.** Be descriptive with your naming.
+  - **Use Lowercase snake_case for Variables and Functions**
+  - **Class names should be like Path_To_ClassName**: All class file names are named lowercase, and their directory path from the root class directory is part of the class name. 
+
+    A class that exists in:
+    ```
+    /classes
+        /animals
+            tigercub.php
+    ```
+    
+    Should be named **Animals_TigerCub**
+    
+  - **Example:**
 
     ```php
     // bad
-    function q() {
-      // ...stuff...
+    class tigercub
+    {
+        public $FoodOptions = array('fish','people');
+        protected $paws = 4;
+        
+        function f() 
+        {
+            return $this->FoodOptions;
+        }
+        
+        function Growl() 
+        {
+            print "rawwwr";
+        }
     }
+
 
     // good
-    function query() {
-      // ..stuff..
+    class Animals_TigerCub
+    {
+        public $food_options = array('fish','people');
+        protected $_paws = 4;
+        
+        function get_food() 
+        {
+            return $this->food_options;
+        }
+        
+        function growl() 
+        {
+            print "rawwwr";
+        }
     }
     ```
-
-  - **Use Lowercase snake_case for Variables and Functions**
 
     javascript:
     ```javascript
@@ -230,17 +266,6 @@ Taken from style guides for: airbnb, kohana, pear
     $lots_of_things = '';
     function do_nothing() {}
     ```
-    
-  - **Class names should be like Path_To_ClassName**: All class file names are named lowercase, and their directory path from the root class directory is part of the class name. 
-
-    A class that exists in:
-    ```
-    /classes
-        /animals
-            tigercub.php
-    ```
-    
-    Should be named **Animals_TigerCub**
     
     
   - **Protected or private class variables are underscore prefixed**
