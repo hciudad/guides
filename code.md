@@ -378,4 +378,38 @@ Taken from: airbnb, kohana
 
   **[[⬆]](#TOC)**
 
+## <a name='best-practices'>Best Practices</a>
+  - **Return Early**: It'd be best to bail out of a function early rather than wrap main logic in a large if statement.
+  
+  ```php
+  // bad
+  function test($string) {
+      if (is_string($string)) {
+          // .... 
+          // lots
+          // of
+          // stuff
+          // going
+          // on
+          return true;
+      } 
+      else {
+          return false;
+      }
+  }
+
+  // good
+  function test($string) {
+      if (!is_string($string)) return false;
+      
+      // .... 
+      // lots
+      // of
+      // stuff
+      // going
+      // on
+      return true;
+  }
+  ```
+  
 
