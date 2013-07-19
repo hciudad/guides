@@ -90,6 +90,28 @@
     
     **[[⬆]](#TOC)**
 
+## <a name='strings'>Strings</a>
+
+  - Use single quotes `''` for strings that don't require interpolation
+
+    ```php
+    // bad
+    $name = "Bob Parr";
+
+    // good
+    $name = 'Bob Parr';
+    ```
+
+  - Use double quotes `""` for strings that require interpolation
+    
+    ```php
+    // bad
+    $string = 'My name is ' . $name . "\n";
+
+    // good
+    $string = "My name is $name\n";
+    ```
+
 ## <a name='conditionals'>Conditionals</a>
   - **Use `===` and `!==` over `==` and `!=`.**
 
