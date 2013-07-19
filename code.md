@@ -78,7 +78,7 @@ Taken from: airbnb, kohana
     
   - **Long Method Chains**: Use indentation when making long method chains.
 
-    javascript:
+    javascript (subsequent lines are appropriately indented, beginning with '.'):
     ```javascript
     // bad
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
@@ -92,16 +92,16 @@ Taken from: airbnb, kohana
         .updateCount();
     ```
     
-    php:
+    php (subsequent lines are indented and begin with '->'):
     ```php
     // bad
     $rows = $this->where('dob', '=',$patient['dob'])->and_where('lower_first_name','=',$patient['lower_first_name'])->and_where('lower_last_name', '=',$patient['lower_last_name'])->find_all();
 
     // good
     $rows = $this->where('dob', '=',$patient['dob'])
-                 ->and_where('lower_first_name','=',$patient['lower_first_name'])
-                 ->and_where('lower_last_name', '=',$patient['lower_last_name'])
-                 ->find_all();
+        ->and_where('lower_first_name','=',$patient['lower_first_name'])
+        ->and_where('lower_last_name', '=',$patient['lower_last_name'])
+        ->find_all();
 
     ```    
 
