@@ -2,21 +2,23 @@
 
 *A mostly reasonable approach to code style*
 
+Taken from: airbnb, kohana
+
 
 ## <a name='TOC'>Table of Contents</a>
 
   1. [Spacing & Tabbing](#whitespace)  
-  1. [Comments](#comments)
-  1. [Conditionals](#conditionals)
   1. [Blocking](#blocking)
-  1. [Logic Flow](#logicflow)
+  1. [Comments](#comments)
   1. [Naming Conventions](#naming-conventions)
-
-
+  1. [Strings](#strings)
+  1. [Arrays](#arrays)
+  1. [Conditionals](#conditionals)
+  1. [Logic Flow](#logicflow)
+ 
 ## <a name='whitespace'>Spacing & Tabbing</a>
 
- 
-  - **Indentation**: Indent blocks are 4 spaces. Use of the tab key should be translated to this.
+  - **Indentation**: Indent blocks are 4 spaces. Use of the tab key should be translated to this. This helps to avoid problems with diffs and tab/spacing blends not formatting properly in IDEs.
 
     ```php
     if ($istrue) {
@@ -94,75 +96,10 @@
 
     **[[⬆]](#TOC)**
 
-## <a name='strings'>Strings</a>
-
-  - **Use single quotes** `''` for strings that don't require interpolation
-
-    ```php
-    // bad
-    $name = "Bob Parr";
-
-    // good
-    $name = 'Bob Parr';
-    ```
-
-  - **Use double quotes** `""` for strings that require interpolation. Vars are embedded in the string.
-    
-    ```php
-    // bad
-    $string = 'My name is ' . $name . "\n and you are at " . $this->location;
-
-    // good
-    $string = "My name is $name\n and you are at {$this->location}\n";
-    ```
-
-## <a name='conditionals'>Conditionals</a>
-  - **Use `===` and `!==` over `==` and `!=`.**
-
-  - **Use Shortcuts**: 
+## <a name='blocking'>Blocking</a>
+  - **Use [K&R Style](http://en.wikipedia.org/wiki/Indent_style#K.26R_style) for bracketing**
   
-    ```php
-    // bad
-    if (name !== '') {
-      // ...stuff...
-    }
-
-    // good
-    if (name) {
-      // ...stuff...
-    }
-
-    // bad
-    if (count($items) > 0) {
-      // ...stuff...
-    }
-
-    // good
-    if (count($items)) {
-      // ...stuff...
-    }
-    ```
-    
-  - **Wrapping Conditionals**: When the conditional is super long, wrap to the next line, beginning with the logical operator
-
-    ```php
-    // bad
-    if (!isset($this->current_risks[$risk_id]) && isset($this->closed_risks[$risk_id]) && $this->closed_risks[$risk_id]['closed'] >= $hit['latest_ts']) {
-        // ...stuff...
-    }
-
-    // good
-    if (!isset($this->current_risks[$risk_id]) && isset($this->closed_risks[$risk_id]) 
-        && $this->closed_risks[$risk_id]['closed'] >= $hit['latest_ts']) {
-        // ...stuff...
-    }
-    ```
-
-    **[[⬆]](#TOC)**
-
-## <a name='blocks'>Blocks</a>
-
-  - Use braces with all multi-line blocks.
+  - **Use braces with all multi-line blocks**
 
     ```php
     // bad
@@ -187,6 +124,7 @@
     ```
 
     **[[⬆]](#TOC)**
+
 
 ## <a name='comments'>Comments</a>
   - Use `/** ... */` for multiline docblock style comments. Inner lines begin with `*`
@@ -267,7 +205,7 @@
     }
     ```
 
-  - **Use snake_case** when naming variables and functions
+  - **Use lowercase snake_case** when naming variables and functions
 
     javascript:
     ```javascript
@@ -292,8 +230,7 @@
     $lots_of_things = '';
     ```
     
-  - **Use CamelCase Path_To_ClassName** for class definition
-    All class files are named lowercase, and their directory path from the root class directory is part of the class name. 
+  - **Class names should be Path_To_ClassName** for class definition. All class files are named lowercase, and their directory path from the root class directory is part of the class name. 
 
     A class that exists in:
     ```
@@ -306,4 +243,86 @@
     
     
     **[[⬆]](#TOC)**
+
+  - **Constants are all uppercase snake_case**
+
+    ```php
+    // bad
+    define('MyFlag',1);
+    define('my_flag',1);
+    
+    // good
+    define('MY_FLAG',1);
+    ```
+  
+    
+    **[[⬆]](#TOC)**
+
+
+## <a name='strings'>Strings</a>
+
+  - **Use single quotes** `''` for strings that don't require interpolation
+
+    ```php
+    // bad
+    $name = "Bob Parr";
+
+    // good
+    $name = 'Bob Parr';
+    ```
+
+  - **Use double quotes** `""` for strings that require interpolation. Vars are embedded in the string.
+    
+    ```php
+    // bad
+    $string = 'My name is ' . $name . "\n and you are at " . $this->location;
+
+    // good
+    $string = "My name is $name\n and you are at {$this->location}\n";
+    ```
+    
+## <a name='conditionals'>Conditionals</a>
+  - **Use `===` and `!==` over `==` and `!=`.**
+
+  - **Use Shortcuts**: 
+  
+    ```php
+    // bad
+    if (name !== '') {
+      // ...stuff...
+    }
+
+    // good
+    if (name) {
+      // ...stuff...
+    }
+
+    // bad
+    if (count($items) > 0) {
+      // ...stuff...
+    }
+
+    // good
+    if (count($items)) {
+      // ...stuff...
+    }
+    ```
+    
+  - **Wrapping Conditionals**: When the conditional is super long, wrap to the next line, beginning with the logical operator
+
+    ```php
+    // bad
+    if (!isset($this->current_risks[$risk_id]) && isset($this->closed_risks[$risk_id]) && $this->closed_risks[$risk_id]['closed'] >= $hit['latest_ts']) {
+        // ...stuff...
+    }
+
+    // good
+    if (!isset($this->current_risks[$risk_id]) && isset($this->closed_risks[$risk_id]) 
+        && $this->closed_risks[$risk_id]['closed'] >= $hit['latest_ts']) {
+        // ...stuff...
+    }
+    ```
+
+    **[[⬆]](#TOC)**
+
 
