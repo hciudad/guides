@@ -306,7 +306,7 @@ Taken from style guides for: airbnb, kohana, pear
     ```
     
 ## <a name='conditionals'>Conditionals</a>
-  - **Use `===` and `!==` over `==` and `!=`.**
+  - **Understand when to use `===` and `!==` vs `==` and `!=`.**
 
   - **Use Shortcuts**: 
   
