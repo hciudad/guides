@@ -26,7 +26,7 @@ Taken from: airbnb, kohana
     }
     ```
     
-  - **Align Equals**: When dealing with repetitive assignments, align the assignments where reasonable to support readability.
+  - **Align Blocks**: When dealing with repetitive assignments/blocks, align values where reasonable to support readability.
 
     ```php
     // bad
