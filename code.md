@@ -93,7 +93,7 @@ Taken from: airbnb, kohana
 
   - **Spacing Before Parenthesis**: 
 
-    When the parenthesis is to wrap a conditional, preceed with a space
+    When the parenthesis opens a control structure (if/else/while/for/etc), preceed with a space
     ```php
     // bad
     if(test) return false;
