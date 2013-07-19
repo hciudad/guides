@@ -7,7 +7,7 @@ Taken from: airbnb, kohana
 
 ## <a name='TOC'>Table of Contents</a>
 
-  1. [Spacing & Tabbing](#whitespace)  
+  1. [Spacing](#whitespace)  
   1. [Braces](#braces)
   1. [Comments](#comments)
   1. [Naming Conventions](#naming-conventions)
@@ -16,7 +16,7 @@ Taken from: airbnb, kohana
   1. [Conditionals](#conditionals)
   1. [Logic Flow](#logicflow)
  
-## <a name='whitespace'>Spacing & Tabbing</a>
+## <a name='whitespace'>Spacing</a>
 
   - **Indentation**: Indent blocks are 4 spaces. Use of the tab key should be translated to this. This helps to avoid problems with diffs and tab/spacing blends not formatting properly in IDEs.
 
