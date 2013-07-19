@@ -6,8 +6,9 @@
 ## <a name='TOC'>Table of Contents</a>
 
   1. [Spacing & Tabbing](#whitespace)
-  1. [Logic Flow](#logicflow)
   1. [Conditionals](#conditionals)
+  1. [Blocking](#blocking)
+  1. [Logic Flow](#logicflow)
 
 
 ## <a name='whitespace'>Spacing & Tabbing</a>
@@ -89,3 +90,32 @@
     ```
 
     **[[⬆]](#TOC)**
+
+## <a name='blocks'>Blocks</a>
+
+  - Use braces with all multi-line blocks.
+
+    ```php
+    // bad
+    if (test)
+      return false;
+
+    // good
+    if (test) return false;
+
+    // good
+    if (test) {
+      return false;
+    }
+
+    // bad
+    function() { return false; }
+
+    // good
+    function() {
+      return false;
+    }
+    ```
+
+    **[[⬆]](#TOC)**
+
