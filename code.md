@@ -17,7 +17,7 @@ Taken from style guides for: airbnb, kohana, pear
  
 ## <a name='whitespace'>Spacing</a>
 
-  - **Indentation**: Indent blocks are 4 spaces. Use of the tab key should be translated to this. This helps to avoid problems with diffs and tab/spacing blends not formatting properly in IDEs.
+  - **Indentation is 4 spaces**: Indent blocks are 4 spaces. Use of the tab key should be translated to this. This helps to avoid problems with diffs and tab/spacing blends not formatting properly in IDEs.
 
     ```php
     if ($istrue) {
@@ -25,7 +25,7 @@ Taken from style guides for: airbnb, kohana, pear
     }
     ```
     
-  - **Align Blocks**: When dealing with repetitive assignments/blocks, align values where reasonable to support readability.
+  - **Align Similar Blocks**: When dealing with repetitive assignments/blocks, align values where reasonable to support readability.
 
     ```php
     // bad
@@ -61,7 +61,7 @@ Taken from style guides for: airbnb, kohana, pear
     $user->setConfig('sms_phone_number', '615-123-1234',  true);
     ```
    
-  - **Long Method Chains**: Use indentation when making long method chains.
+  - **Long Method Chains are Wrapped and Indented**: Use line breaks and indentation when making long method chains.
 
     javascript (subsequent lines are appropriately indented, beginning with '.'):
     ```javascript
@@ -90,9 +90,9 @@ Taken from style guides for: airbnb, kohana, pear
 
     ```    
 
-  - **Spacing Before Parenthesis**: 
+  - **Spacing Before Opening Parenthesis**: 
 
-    When the parenthesis opens a control structure (if/else/while/for/etc), preceed with a space
+    When the parenthesis opens a control structure (if/else/while/for/etc), preceed with a space.
     ```php
     // bad
     if(test) return false;
@@ -101,7 +101,7 @@ Taken from style guides for: airbnb, kohana, pear
     if (test) return false;
     ```
     
-    When the parenthesis is part of a function call, don't add any spaces
+    When the parenthesis is part of a function call, don't add any spaces.
     ```php
     // bad
     my_function ();
@@ -111,7 +111,7 @@ Taken from style guides for: airbnb, kohana, pear
     ```
     
 
-  - **Space Before Leading Braces**: Place 1 space before the leading brace.
+  - **1 Space Before Leading Braces**: Place 1 space before the leading brace.
 
     ```php
     // bad
@@ -128,7 +128,7 @@ Taken from style guides for: airbnb, kohana, pear
     **[[⬆]](#TOC)**
 
 ## <a name='braces'>Braces</a>
-  - **Use [K&R Style](http://en.wikipedia.org/wiki/Indent_style#K.26R_style) for bracketing**
+  - **Use [K&R Style](http://en.wikipedia.org/wiki/Indent_style#K.26R_style) for bracketing functions**
   
   - **Use braces with all multi-line blocks**
 
@@ -150,8 +150,8 @@ Taken from style guides for: airbnb, kohana, pear
 
 
 ## <a name='comments'>Comments</a>
-  - Use `/** ... */` for multiline docblock style comments. Inner lines begin with `*`
-  - Use `//` for single line comments
+  - **Use `/** ... */` for multiline docblock style comments**. Inner lines begin with `*`
+  - **Use `//` for single line comments**
    
     ```php
     // bad
@@ -185,20 +185,6 @@ Taken from style guides for: airbnb, kohana, pear
     }
     ```
 
-  - Use `// FIXME:` to annotate problems
-
-    ```php
-      // FIXME: shouldn't use a global here
-      if ($global_var) print 'hello';
-    ```
-
-  - Use `// TODO:` to annotate solutions to problems
-
-    ```php
-      // TODO: max should be configurable
-      for ($i=0; $i<5; $i++) print 'hello';
-    ```
-
     **[[⬆]](#TOC)**
 
 
@@ -218,7 +204,7 @@ Taken from style guides for: airbnb, kohana, pear
     }
     ```
 
-  - **Use lowercase snake_case** when naming variables and functions
+  - **Use Lowercase snake_case for Variables and Functions**
 
     javascript:
     ```javascript
@@ -243,7 +229,7 @@ Taken from style guides for: airbnb, kohana, pear
     $lots_of_things = '';
     ```
     
-  - **Class names should be Path_To_ClassName** for class definition. All class files are named lowercase, and their directory path from the root class directory is part of the class name. 
+  - **Class names should be like Path_To_ClassName**: All class file names are named lowercase, and their directory path from the root class directory is part of the class name. 
 
     A class that exists in:
     ```
@@ -255,8 +241,6 @@ Taken from style guides for: airbnb, kohana, pear
     Should be named **Animals_TigerCub**
     
     
-    **[[⬆]](#TOC)**
-
   - **Protected or private class variables are underscore prefixed**
 
     ```php
@@ -277,14 +261,13 @@ Taken from style guides for: airbnb, kohana, pear
     // good
     define('MY_FLAG',1);
     ```
-  
     
     **[[⬆]](#TOC)**
 
 
 ## <a name='strings'>Strings</a>
 
-  - **Use single quotes** `''` for strings that don't require interpolation
+  - **Use Single Quotes Where Possible** `''` for strings that don't require interpolation
 
     ```php
     // bad
@@ -294,7 +277,7 @@ Taken from style guides for: airbnb, kohana, pear
     $name = 'Bob Parr';
     ```
 
-  - **Use double quotes** `""` for strings that require interpolation. Vars are embedded in the string.
+  - **Use Double Quotes When Necessary** `""` for strings that require interpolation. Vars are embedded in the string.
     
     ```php
     // bad
@@ -411,6 +394,21 @@ Taken from style guides for: airbnb, kohana, pear
   }
   ```
   
+  
+  - **Use `// FIXME:` to annotate problems**
+
+    ```php
+      // FIXME: shouldn't use a global here
+      if ($global_var) print 'hello';
+    ```
+
+  - **Use `// TODO:` to annotate solutions to problems**
+
+    ```php
+      // TODO: max should be configurable
+      for ($i=0; $i<5; $i++) print 'hello';
+    ```
+    
   **[[⬆]](#TOC)**
 
 
