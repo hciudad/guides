@@ -15,47 +15,13 @@
 
 ## <a name='whitespace'>Spacing & Tabbing</a>
 
-  - Place 1 space before the leading brace.
+ 
+  - **Indentation**: Indent blocks are 4 spaces. Use of the tab key should be translated to this.
 
     ```php
-    // bad
-    function test(){
-      // ...
+    if ($istrue) {
+        print "it's true!";
     }
-
-    // good
-    function test() {
-      // ...
-    }
-    ```
-    
-  - Use indentation when making long method chains.
-
-    javascript:
-    ```javascript
-    // bad
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
-
-    // good
-    $('#items')
-      .find('.selected')
-        .highlight()
-        .end()
-      .find('.open')
-        .updateCount();
-    ```
-    
-    php:
-    ```php
-    // bad
-    $rows = $this->where('dob',   '=',$patient['dob'])->and_where('lower_first_name','=',$patient['lower_first_name'])->and_where('lower_last_name', '=',$patient['lower_last_name'])->find_all();
-
-    // good
-    $rows = $this->where('dob',   '=',$patient['dob'])
-                 ->and_where('lower_first_name','=',$patient['lower_first_name'])
-                 ->and_where('lower_last_name', '=',$patient['lower_last_name'])
-                 ->find_all();
-
     ```
     
   - **Align Equals**: When dealing with several rows of assignments or array specification, align the equals sign (within reason)
@@ -82,15 +48,50 @@
         "twenty-one hundred" => 2100,
     );
     ```
-    
-  - **Indentation**: Indent blocks are 4 spaces. Use of the tab key should be translated to this.
+   
+  - **Leading Braces**: Place 1 space before the leading brace.
 
     ```php
-    if ($istrue) {
-        print "it's true!";
+    // bad
+    function test(){
+      // ...
+    }
+
+    // good
+    function test() {
+      // ...
     }
     ```
     
+  - **Long Method Chains**: Use indentation when making long method chains.
+
+    javascript:
+    ```javascript
+    // bad
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+    // good
+    $('#items')
+      .find('.selected')
+        .highlight()
+        .end()
+      .find('.open')
+        .updateCount();
+    ```
+    
+    php:
+    ```php
+    // bad
+    $rows = $this->where('dob',   '=',$patient['dob'])->and_where('lower_first_name','=',$patient['lower_first_name'])->and_where('lower_last_name', '=',$patient['lower_last_name'])->find_all();
+
+    // good
+    $rows = $this->where('dob',   '=',$patient['dob'])
+                 ->and_where('lower_first_name','=',$patient['lower_first_name'])
+                 ->and_where('lower_last_name', '=',$patient['lower_last_name'])
+                 ->find_all();
+
+    ```    
+
     **[[⬆]](#TOC)**
 
 ## <a name='strings'>Strings</a>
