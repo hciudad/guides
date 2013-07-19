@@ -26,11 +26,11 @@ Taken from: airbnb, kohana
     }
     ```
     
-  - **Align Equals**: When dealing with several rows of assignments or array specification, align the equals sign (within reason)
+  - **Align Equals**: When dealing with repetitive assignments, align the assignments where reasonable to support readability.
 
     ```php
     // bad
-    $this = "that";
+    $what = "that";
     $another_var = "another"
     $really_long_variable = "this other string";
     $settings = array(
@@ -38,9 +38,15 @@ Taken from: airbnb, kohana
         "fourteen" => 14,
         "twenty-one hundred" => 2100,
     );
+    $user->setConfig('sms_phone_number', '615-123-1234', true);
+    $user->setConfig('notify_on_alert', 'this@that.com', true);
+    $user->setConfig('is_admin', 'y', false);
+    $user->setConfig('debug_level', 'high', true);
+    $user->setConfig('sms_phone_number', '615-123-1234', true);
+    
     
     // good
-    $this            = "that";
+    $what            = "that";
     $another_var     = "another"
     $really_long_var = "this other string";
     $absurdly_long_and_itd_be_silly_to_align_with_me = "hello";
@@ -49,6 +55,11 @@ Taken from: airbnb, kohana
         "fourteen"           => 14,
         "twenty-one hundred" => 2100,
     );
+    $user->setConfig('sms_phone_number', '615-123-1234',  true);
+    $user->setConfig('notify_on_alert',  'this@that.com', true);
+    $user->setConfig('is_admin',         'y',             false);
+    $user->setConfig('debug_level',      'high',          true);
+    $user->setConfig('sms_phone_number', '615-123-1234',  true);
     ```
    
   - **Leading Braces**: Place 1 space before the leading brace.
@@ -244,6 +255,16 @@ Taken from: airbnb, kohana
     
     **[[⬆]](#TOC)**
 
+  - **Protected or private class variables are underscore prefixed**
+
+    ```php
+    // bad
+    protected $length;
+    
+    // good
+    protected $_length;
+    ```
+    
   - **Constants are all uppercase snake_case**
 
     ```php
@@ -308,21 +329,50 @@ Taken from: airbnb, kohana
     }
     ```
     
-  - **Wrapping Conditionals**: When the conditional is super long, wrap to the next line, beginning with the logical operator
+  - **Wrapping Conditionals**: When the conditional is super long, wrap to the next line, beginning with the logical operator. Opening brace goes on a line by itself.
 
     ```php
     // bad
-    if (!isset($this->current_risks[$risk_id]) && isset($this->closed_risks[$risk_id]) && $this->closed_risks[$risk_id]['closed'] >= $hit['latest_ts']) {
-        // ...stuff...
-    }
-
-    // good
-    if (!isset($this->current_risks[$risk_id]) && isset($this->closed_risks[$risk_id]) 
-        && $this->closed_risks[$risk_id]['closed'] >= $hit['latest_ts']) {
-        // ...stuff...
+    if ((condition1
+         || condition2)
+        && condition3
+        && condition4) 
+    {
+        // ... stuff
     }
     ```
 
-    **[[⬆]](#TOC)**
+    For very complex conditionals, it may be better to break the conditional down. 
+    ```php
+    $is_this = (condition1 || condition2);
+    $is_that = (condition3 && condition4);
+    if ($is_this || $is_that) {
+        // ....
+    }
+    ```
+
+  - **Trenary**: Fine for use, but keep it simple.
+
+  ```php
+  // all good
+  $foo = ($a == $b) ? $a : $b;
+  $foo = $a ? $a : $b;
+
+  // complex statements can be broken across lines
+  $foo = ($condition1 == $condition2)
+       ? $positive_result
+       : $negative_result;
+  ```
+
+  Avoid use when casting can solve the problem:
+  ```php
+  // bad
+  $flag = ($f == TRUE) ? TRUE : FALSE;
+  
+  // good
+  $flag = (bool) $f;
+  ```
+
+  **[[⬆]](#TOC)**
 
 
