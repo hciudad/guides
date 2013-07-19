@@ -124,14 +124,6 @@ Taken from: airbnb, kohana
     if (test) {
       return false;
     }
-
-    // bad
-    function() { return false; }
-
-    // good
-    function() {
-      return false;
-    }
     ```
 
     **[[⬆]](#TOC)**
