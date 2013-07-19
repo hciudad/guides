@@ -19,9 +19,9 @@
     $another_var = "another"
     $really_long_variable = "this other string";
     $settings = array(
-      "one" => 1,
-      "fourteen" => 14,
-      "twenty-one hundred" => 2100,
+        "one" => 1,
+        "fourteen" => 14,
+        "twenty-one hundred" => 2100,
     );
     
     // good
@@ -30,9 +30,9 @@
     $really_long_var = "this other string";
     $absurdly_long_and_itd_be_silly_to_align_with_me = "hello";
     $settings = array(
-      "one"                => 1,
-      "fourteen"           => 14,
-      "twenty-one hundred" => 2100,
+        "one"                => 1,
+        "fourteen"           => 14,
+        "twenty-one hundred" => 2100,
     );
     ```
     
