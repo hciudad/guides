@@ -30,6 +30,7 @@
     
   - Use indentation when making long method chains.
 
+    javascript:
     ```javascript
     // bad
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
@@ -43,6 +44,7 @@
         .updateCount();
     ```
     
+    php:
     ```php
     // bad
     $rows = $this->where('dob',   '=',$patient['dob'])->and_where('lower_first_name','=',$patient['lower_first_name'])->and_where('lower_last_name', '=',$patient['lower_last_name'])->find_all();
