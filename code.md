@@ -5,7 +5,8 @@
 
 ## <a name='TOC'>Table of Contents</a>
 
-  1. [Spacing & Tabbing](#whitespace)
+  1. [Spacing & Tabbing](#whitespace)  
+  1. [Comments](#comments)
   1. [Conditionals](#conditionals)
   1. [Blocking](#blocking)
   1. [Logic Flow](#logicflow)
@@ -119,3 +120,39 @@
 
     **[[⬆]](#TOC)**
 
+## <a name='comments'>Comments</a>
+  - Use `/** ... */` for multiline docblock style comments. Inner lines begin with `*`
+  - Use `//` for single line comments
+   
+    ```php
+    // bad
+
+    // sayhello() says hello to the given 
+    // name and returns true if successful.
+    //
+    // @param <String> name
+    // @return <Boolean> printed
+    function sayhello($name) {
+        
+        /** say hello to my user **/
+        print "hello, $name";
+        
+        return true;
+    }
+
+    // good
+    /**
+     * sayhello() says hello to the given
+     * name and returns true if successful.
+     *
+     * @param <String> name
+     * @return <Boolean> printed
+     */
+    function sayhello($name) {
+
+        // say hello to my user
+        print "hello, $name";
+        
+        return true;
+    }
+    ```
