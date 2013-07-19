@@ -14,7 +14,7 @@ Taken from: airbnb, kohana
   1. [Strings](#strings)
   1. [Arrays](#arrays)
   1. [Conditionals](#conditionals)
-  1. [Logic Flow](#logicflow)
+  1. [Best Practices](#best-practices)
  
 ## <a name='whitespace'>Spacing</a>
 
@@ -412,4 +412,6 @@ Taken from: airbnb, kohana
   }
   ```
   
+  **[[⬆]](#TOC)**
+
 
