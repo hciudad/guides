@@ -10,6 +10,7 @@
   1. [Conditionals](#conditionals)
   1. [Blocking](#blocking)
   1. [Logic Flow](#logicflow)
+  1. [Naming Conventions](#naming-conventions)
 
 
 ## <a name='whitespace'>Spacing & Tabbing</a>
@@ -247,3 +248,50 @@
   ```
 
     **[[⬆]](#TOC)**
+
+
+## <a name='naming-conventions'>Naming Conventions</a>
+
+  - Avoid single letter names. Be descriptive with your naming.
+
+    ```php
+    // bad
+    function q() {
+      // ...stuff...
+    }
+
+    // good
+    function query() {
+      // ..stuff..
+    }
+    ```
+
+  - Use snake_case when naming variables and functions
+
+    javascript:
+    ```javascript
+    // bad
+    var OBJEcttsssss = {};
+    var thisIsMyObject = {};
+    var this-is-my-object = {};
+    function c() {};
+    var u = new User({
+        name: 'Bob Parr'
+    });
+
+    // good
+    var this_is_my_object = {};
+    function this_is_my_function() {};
+    var user = new user({
+        name: 'Bob Parr'
+    });
+    ```
+
+    php:
+    ```php
+    // bad
+    $LotsOfThings = '';
+    
+    // good
+    $lots_of_things = '';
+    ```
