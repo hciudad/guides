@@ -126,7 +126,6 @@
    
     ```php
     // bad
-
     // sayhello() says hello to the given 
     // name and returns true if successful.
     //
