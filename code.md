@@ -82,10 +82,10 @@
     php:
     ```php
     // bad
-    $rows = $this->where('dob',   '=',$patient['dob'])->and_where('lower_first_name','=',$patient['lower_first_name'])->and_where('lower_last_name', '=',$patient['lower_last_name'])->find_all();
+    $rows = $this->where('dob', '=',$patient['dob'])->and_where('lower_first_name','=',$patient['lower_first_name'])->and_where('lower_last_name', '=',$patient['lower_last_name'])->find_all();
 
     // good
-    $rows = $this->where('dob',   '=',$patient['dob'])
+    $rows = $this->where('dob', '=',$patient['dob'])
                  ->and_where('lower_first_name','=',$patient['lower_first_name'])
                  ->and_where('lower_last_name', '=',$patient['lower_last_name'])
                  ->find_all();
@@ -96,7 +96,7 @@
 
 ## <a name='strings'>Strings</a>
 
-  - Use single quotes `''` for strings that don't require interpolation
+  - **Use single quotes** `''` for strings that don't require interpolation
 
     ```php
     // bad
@@ -106,14 +106,14 @@
     $name = 'Bob Parr';
     ```
 
-  - Use double quotes `""` for strings that require interpolation
+  - **Use double quotes** `""` for strings that require interpolation. Vars are embedded in the string.
     
     ```php
     // bad
-    $string = 'My name is ' . $name . "\n";
+    $string = 'My name is ' . $name . "\n and you are at " . $this->location;
 
     // good
-    $string = "My name is $name\n";
+    $string = "My name is $name\n and you are at {$this->location}\n";
     ```
 
 ## <a name='conditionals'>Conditionals</a>
@@ -267,7 +267,7 @@
     }
     ```
 
-  - Use snake_case when naming variables and functions
+  - **Use snake_case** when naming variables and functions
 
     javascript:
     ```javascript
@@ -291,3 +291,19 @@
     // good
     $lots_of_things = '';
     ```
+    
+  - **Use CamelCase Path_To_ClassName** for class definition
+    All class files are named lowercase, and their directory path from the root class directory is part of the class name. 
+
+    A class that exists in:
+    ```
+    /classes
+        /animals
+            tigercub.php
+    ```
+    
+    Should be named **Animals_TigerCub**
+    
+    
+    **[[⬆]](#TOC)**
+
