@@ -275,16 +275,11 @@
     var thisIsMyObject = {};
     var this-is-my-object = {};
     function c() {};
-    var u = new User({
-        name: 'Bob Parr'
-    });
+
 
     // good
     var this_is_my_object = {};
     function this_is_my_function() {};
-    var user = new user({
-        name: 'Bob Parr'
-    });
     ```
 
     php:
