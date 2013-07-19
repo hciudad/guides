@@ -37,7 +37,7 @@
     );
     ```
     
-  - **Block Indentation**: Indent blocks are 4 spaces. Use of the tab key should be translated to this.
+  - **Indentation**: Indent blocks are 4 spaces. Use of the tab key should be translated to this.
 
     ```php
     if ($istrue) {
