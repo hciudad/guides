@@ -192,22 +192,21 @@ Taken from style guides for: airbnb, kohana, pear
 
   - **Avoid single letter names.** Be descriptive with your naming.
   - **Use Lowercase snake_case for Variables and Functions**
-  - **Class names should be like Path_To_ClassName**: All class file names are named lowercase, and their directory path from the root class directory is part of the class name. 
+  - **Class File Names and Directories are Lower Case**
+  - **Class names should be like Path_To_ClassName**
+  - **Example:**
 
-    A class that exists in:
+    Assuming a class exists in:
     ```
     /classes
         /animals
             tigercub.php
     ```
     
-    Should be named **Animals_TigerCub**
-    
-  - **Example:**
 
     ```php
     // bad
-    class tigercub
+    class cub
     {
         public $FoodOptions = array('fish','people');
         protected $paws = 4;
@@ -242,53 +241,6 @@ Taken from style guides for: airbnb, kohana, pear
     }
     ```
 
-    javascript:
-    ```javascript
-    // bad
-    var OBJEcttsssss = {};
-    var thisIsMyObject = {};
-    var this-is-my-object = {};
-    function c() {};
-
-
-    // good
-    var this_is_my_object = {};
-    function this_is_my_function() {};
-    ```
-
-    php:
-    ```php
-    // bad
-    $LotsOfThings = '';
-    function DoNothing() {}
-    
-    // good
-    $lots_of_things = '';
-    function do_nothing() {}
-    ```
-    
-    
-  - **Protected or private class variables are underscore prefixed**
-
-    ```php
-    // bad
-    protected $length;
-    
-    // good
-    protected $_length;
-    ```
-    
-  - **Constants are all uppercase snake_case**
-
-    ```php
-    // bad
-    define('MyFlag',1);
-    define('my_flag',1);
-    
-    // good
-    define('MY_FLAG',1);
-    ```
-    
     **[[⬆]](#TOC)**
 
 
