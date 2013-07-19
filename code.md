@@ -1,4 +1,4 @@
-# RoundingWell JavaScript Style Guide() {
+# RoundingWell Code Style Guide
 
 *A mostly reasonable approach to code style*
 
