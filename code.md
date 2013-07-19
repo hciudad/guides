@@ -2,7 +2,7 @@
 
 *A mostly reasonable approach to code style*
 
-Taken from: airbnb, kohana
+Taken from style guides for: airbnb, kohana, pear
 
 
 ## <a name='TOC'>Table of Contents</a>
