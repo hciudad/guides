@@ -13,6 +13,48 @@
 
 
 ## <a name='whitespace'>Spacing & Tabbing</a>
+
+  - Place 1 space before the leading brace.
+
+    ```php
+    // bad
+    function test(){
+      // ...
+    }
+
+    // good
+    function test() {
+      // ...
+    }
+    ```
+    
+  - Use indentation when making long method chains.
+
+    ```javascript
+    // bad
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+    // good
+    $('#items')
+      .find('.selected')
+        .highlight()
+        .end()
+      .find('.open')
+        .updateCount();
+    ```
+    
+    ```php
+    // bad
+    $rows = $this->where('dob',   '=',$patient['dob'])->and_where('lower_first_name','=',$patient['lower_first_name'])->and_where('lower_last_name', '=',$patient['lower_last_name'])->find_all();
+
+    // good
+    $rows = $this->where('dob',   '=',$patient['dob'])
+                 ->and_where('lower_first_name','=',$patient['lower_first_name'])
+                 ->and_where('lower_last_name', '=',$patient['lower_last_name'])
+                 ->find_all();
+
+    ```
+    
   - **Align Equals**: When dealing with several rows of assignments or array specification, align the equals sign (within reason)
 
     ```php
@@ -155,3 +197,29 @@
         return true;
     }
     ```
+
+  - Use `// FIXME:` to annotate problems
+
+    ```javascript
+    function Calculator() {
+
+      // FIXME: shouldn't use a global here
+      total = 0;
+
+      return this;
+    }
+    ```
+
+  - Use `// TODO:` to annotate solutions to problems
+
+    ```javascript
+    function Calculator() {
+
+      // TODO: total should be configurable by an options param
+      this.total = 0;
+
+      return this;
+    }
+  ```
+
+    **[[⬆]](#TOC)**
