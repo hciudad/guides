@@ -8,7 +8,7 @@ Taken from: airbnb, kohana
 ## <a name='TOC'>Table of Contents</a>
 
   1. [Spacing & Tabbing](#whitespace)  
-  1. [Blocking](#blocking)
+  1. [Braces](#braces)
   1. [Comments](#comments)
   1. [Naming Conventions](#naming-conventions)
   1. [Strings](#strings)
@@ -62,20 +62,6 @@ Taken from: airbnb, kohana
     $user->setConfig('sms_phone_number', '615-123-1234',  true);
     ```
    
-  - **Leading Braces**: Place 1 space before the leading brace.
-
-    ```php
-    // bad
-    function test(){
-      // ...
-    }
-
-    // good
-    function test() {
-      // ...
-    }
-    ```
-    
   - **Long Method Chains**: Use indentation when making long method chains.
 
     javascript (subsequent lines are appropriately indented, beginning with '.'):
@@ -105,9 +91,44 @@ Taken from: airbnb, kohana
 
     ```    
 
+  - **Spacing Before Parenthesis**: 
+
+    When the parenthesis is to wrap a conditional, preceed with a space
+    ```php
+    // bad
+    if(test) return false;
+    
+    // good
+    if (test) return false;
+    ```
+    
+    When the parenthesis is part of a function call, don't add any spaces
+    ```php
+    // bad
+    my_function ();
+    
+    // good
+    my_function();
+    ```
+    
+
+  - **Space Before Leading Braces**: Place 1 space before the leading brace.
+
+    ```php
+    // bad
+    function test(){
+      // ...
+    }
+
+    // good
+    function test() {
+      // ...
+    }
+    ```
+    
     **[[⬆]](#TOC)**
 
-## <a name='blocking'>Blocking</a>
+## <a name='braces'>Braces</a>
   - **Use [K&R Style](http://en.wikipedia.org/wiki/Indent_style#K.26R_style) for bracketing**
   
   - **Use braces with all multi-line blocks**
