@@ -47,18 +47,44 @@
     **[[⬆]](#TOC)**
 
 ## <a name='conditionals'>Conditionals</a>
-  - **Wrapping Conditionals**: When the conditional is cumbersomely long, wrap to the next line, beginning with the logical operator
+  - **Use `===` and `!==` over `==` and `!=`.**
+
+  - **Use Shortcuts**: 
+  
+    ```php
+    // bad
+    if (name !== '') {
+      // ...stuff...
+    }
+
+    // good
+    if (name) {
+      // ...stuff...
+    }
+
+    // bad
+    if (count($items) > 0) {
+      // ...stuff...
+    }
+
+    // good
+    if (count($items)) {
+      // ...stuff...
+    }
+    ```
+    
+  - **Wrapping Conditionals**: When the conditional is super long, wrap to the next line, beginning with the logical operator
 
     ```php
     // bad
     if (!isset($this->current_risks[$risk_id]) && isset($this->closed_risks[$risk_id]) && $this->closed_risks[$risk_id]['closed'] >= $hit['latest_ts']) {
-        ...
+        // ...stuff...
     }
 
     // good
     if (!isset($this->current_risks[$risk_id]) && isset($this->closed_risks[$risk_id]) 
         && $this->closed_risks[$risk_id]['closed'] >= $hit['latest_ts']) {
-        ...
+        // ...stuff...
     }
     ```
 
