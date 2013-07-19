@@ -167,27 +167,17 @@ Taken from: airbnb, kohana
 
   - Use `// FIXME:` to annotate problems
 
-    ```javascript
-    function Calculator() {
-
+    ```php
       // FIXME: shouldn't use a global here
-      total = 0;
-
-      return this;
-    }
+      if ($global_var) print 'hello';
     ```
 
   - Use `// TODO:` to annotate solutions to problems
 
-    ```javascript
-    function Calculator() {
-
-      // TODO: total should be configurable by an options param
-      this.total = 0;
-
-      return this;
-    }
-  ```
+    ```php
+      // TODO: max should be configurable
+      for ($i=0; $i<5; $i++) print 'hello';
+    ```
 
     **[[⬆]](#TOC)**
 
