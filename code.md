@@ -224,9 +224,11 @@ Taken from style guides for: airbnb, kohana, pear
     ```php
     // bad
     $LotsOfThings = '';
+    function DoNothing() {}
     
     // good
     $lots_of_things = '';
+    function do_nothing() {}
     ```
     
   - **Class names should be like Path_To_ClassName**: All class file names are named lowercase, and their directory path from the root class directory is part of the class name. 
