@@ -60,5 +60,6 @@
         && $this->closed_risks[$risk_id]['closed'] >= $hit['latest_ts']) {
         ...
     }
+    ```
 
     **[[⬆]](#TOC)**
