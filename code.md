@@ -12,7 +12,6 @@ Taken from style guides for: airbnb, kohana, pear
   1. [Comments](#comments)
   1. [Naming Conventions](#naming-conventions)
   1. [Strings](#strings)
-  1. [Arrays](#arrays)
   1. [Conditionals](#conditionals)
   1. [Best Practices](#best-practices)
  
