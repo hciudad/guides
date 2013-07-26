@@ -2,6 +2,7 @@
 
 ## <a name='TOC'>Table of Contents</a>
 
+  1. [Code Style Guide](#code-style-guide)
   1. [Javascript Style Guide](#javascript-style-guide)
   1. [Javascript Organization](#javascript-organization)
   1. [LESS/CSS Style Guide](#lesscss-style-guide)
@@ -9,6 +10,15 @@
   1. [Font Icon](#font-icon)
   1. [Design Specifications](#design-specifications)
 
+## <a name='code-style-guide'>Code Style Guide</a>
+
+[RoundingWell Code Style Guide](https://github.com/RoundingWell/guides/blob/master/code.md)
+
+*A mostly reasonable approach to code style*
+
+Taken from style guides for: airbnb, kohana, pear
+
+**[[⬆]](#TOC)**
 ## <a name='javascript-style-guide'>Javascript Style Guide</a>
 
 [RoundingWell Javascript Style Guide](https://github.com/RoundingWell/guides/blob/master/javascript.md)
