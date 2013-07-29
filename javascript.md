@@ -1082,6 +1082,7 @@
 **Read This**
 
   - [Annotated ECMAScript 5.1](http://es5.github.com/)
+  - [Patterns For Large-Scale JavaScript Application Architecture](http://addyosmani.com/largescalejavascript/)
 
 **Other Styleguides**
 
