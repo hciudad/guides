@@ -152,4 +152,5 @@ Example for a call to get an inbox entry. Contains embedded patient, interaction
 ORMs are pretty and concise for manipulating and creating rows in the db. They are heavy overhead and provide little benefit when trying to gather large result sets together to return. So, in general:
 
 When dealing with gathering potentially large sets of information: DB queries
+
 When you want to create/manipulate one db row: ORM 
