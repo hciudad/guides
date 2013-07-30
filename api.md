@@ -5,6 +5,7 @@
   1. [Where API Calls Go](#api-location)  
   1. [Standard Calls](#standard-calls)  
   1. [Standard Response](#standard-response)  
+  1. [Decryption](#decryption)
   1. [You Decrypt it You Log it](#decrypt-and-log)
   1. [ORM vs DB Queries](#orm-vs-db)
 
