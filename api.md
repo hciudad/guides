@@ -5,6 +5,7 @@
   1. [Where API Calls Go](#api-location)  
   1. [Standard Calls](#standard-calls)  
   1. [Standard Response](#standard-response)  
+  1. [API Parameters](#api-parameters)  
   1. [Decryption](#decryption)
   1. [You Decrypt it You Log it](#decrypt-and-log)
   1. [ORM vs DB Queries](#orm-vs-db)
@@ -159,6 +160,52 @@ Example for a call to get an inbox entry. Contains embedded patient, interaction
     "archived":null
   }
 }
+```
+
+
+## <a name='api-parameters'>API Parameters</a>
+
+  - **GET Parameters**: 
+  GET (or query) params include both params embedded in the url (/patient/get/1) and typical GET query string params (?f1=a&f2=b). If the parameter does not affect any stored value, but simply influences a search, it should be a GET parameter. GET parameter validation rules are given in the controller validation class under the function name {action}_query_rules 
+
+  Validation Example:
+```php
+    // in classes/validate/{controller_name}.php
+    public function get_query_rules()
+    {
+        return array(
+            'id' => array(
+                array('not_empty'),
+                array('digit'),
+            ),
+        );
+    }
+```
+  
+  An exception to the GET parameter rule is if you need to get all objects that match a list of ids. This list can be of variable length, and so it risks maxing out GET length restrictions. GET params that can be of large length lists should be passed in as POST. 
+  
+  - **POST Params**: If a parameter could be of long length, or if it affects a stored value, it should be passed in as post. Post validation rules are given in the controller validation class under the function name {action}_rules
+
+  Validation Example:
+```php
+    public function create_rules()
+    {
+        return array(
+            'role'  => array(
+                array('not_empty'),
+                array('in_array', array(':value', array('nurse', 'physician', 'dietitian', 'social', 'coordinator', 'other', 'admin'))),
+            ),
+            'login' => array(
+                array('not_empty'),
+                array('min_length', array(':value', 3)),
+                array('max_length', array(':value', 50)),
+            ),
+            'pass' => array(
+                array('min_length', array(':value', 4)),
+                array('max_length', array(':value', 71)),
+            ),
+            ...
+     }
 ```
 
 ## <a name='decryptioin'>Decryption</a>
