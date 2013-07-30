@@ -2,9 +2,22 @@
 
 ## <a name='TOC'>Table of Contents</a>
 
+  1. [Where API Calls Go](#api-location)  
   1. [Standard Calls](#standard-calls)  
   1. [Standard Response](#standard-response)  
+  1. [You Decrypt it You Log it](#decrypt-and-log)
   1. [ORM vs DB Queries](#orm-vs-db)
+
+## <a name='api-location'>Where API Calls Go</a>
+
+Occassionally it isn't so obvious which controller an api should reside in. Rule of thumb: what is the core object you 
+are returning? That's the controller it goes in, and everything else is an embedded object. 
+
+An example: you need to write a new API that returns all the inbox entries a clinician has. Inbox entries are really 
+just glue that pulls together an interaction on a risk, the user that wrote it, and the patient it relates to. It may 
+be tempting to put this on the interaction api, but the core of what you are getting is an inbox entry. It goes in
+an inbox controller, and the core object it returns is a list of inbox entries. The interaction,patient,etc are all 
+embedded within their entry. 
 
 ## <a name='standard-calls'>Standard Calls</a>
 
@@ -145,6 +158,31 @@ Example for a call to get an inbox entry. Contains embedded patient, interaction
     "archived":null
   }
 }
+```
+
+## <a name='decryptioin'>Decryption</a>
+
+  - **You can send a hash or a zero-indexed array of hashes**
+
+  - **Minimize Hits**: If you have a large number of objects to decrypt, it's better to combine the phi in one array and send it all in one batch. 
+  
+## <a name='decrypt-n-log'>You Decrypt it You Log it</a>
+
+Use decrypt? Odds are you need to log phi access. The only exception is if you decrypted something simply to do 
+a calculation on the value, and you did NOT return any decrypted phi in the api's return. 
+
+Requests to log access take place in the action of the api at the controller level. Every api controller has a function available to it, $this->access_log(), to handle the logging details for you.
+
+```php
+// you returned two patients' first and last names in the api call
+$patient_ids = array(1,2);
+$this->access_log($patient_ids, 'Decrypted patient name.', array('first_name', 'middle_initial', 'last_name'));
+
+// you decrypted direct messages for patient id 1
+$this->access_log(array(1), "decrypted direct messages", null, array('messages' => $array_of_message_ids));
+
+// you decrypted patient id 1's name AND comments on one of their risks
+$this->access_log(array(1), "", array('first_name','last_name'), array('interactions' => $array_of_int_ids));
 ```
 
 ## <a name='orm-vs-db'>ORM vs DB Queries</a>
