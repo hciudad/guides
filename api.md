@@ -33,7 +33,7 @@ Any json encoded attributes should be decoded into hash form (json_decode($item,
 
 Example for a call to get response answers for a checkin (has a json attribute, no embedded objects, no phi):
 
-    ```php
+```php
 [
   {
     "id":98,
@@ -71,11 +71,11 @@ Example for a call to get response answers for a checkin (has a json attribute, 
   },
   ...
 ]
-    ```
+```
  
 Example for a call to get a group. Contains an embedded list of users associated with the group. 
 
-    ```php
+```php
 {
   "id":1,
   "organization_id":1,
@@ -99,7 +99,7 @@ Example for a call to get a group. Contains an embedded list of users associated
     ...
     ]
 }
-  ```
+```
   
 Example for a call to get an inbox entry. Contains embedded patient, interaction and user objects. Patient object is limited to only those phi fields necessary. 
 
