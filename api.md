@@ -43,7 +43,7 @@ Other api calls exist when the standard set cannot satisfy.
 ## <a name='standard-response'>Standard Response</a>
 
 All objects returned should be true json representations of that object's non phi fields. PHI fields are included only when necessary or specifically requested. 
-Objects can be embedded within their referencing parent object.
+Objects can be embedded within their referencing parent object via a _relations attribute.
 Any json encoded attributes should be decoded into hash form (json_decode($item, true)). 
 
 Example for a call to get response answers for a checkin (has a json attribute, no embedded objects, no phi):
@@ -96,23 +96,25 @@ Example for a call to get a group. Contains an embedded list of users associated
   "organization_id":1,
   "name":"Example Group",
   "meta_json":null,
-  "users":[
-    {
-      "id":4,
-      "organization_id":1,
-      "role":"physician",
-      "status":"active",
-      "first_name":"Logo",
-      "middle_initial":null,
-      "last_name":"Test",
-      "email":"kim.hatcher+logo@roundingwell.com",
-      "activity_emails":true,
-      "login":"kim.hatcher+logo@roundingwell.com",
-      "salt":"d5736019cf664a68c8ff9bd94d88facd",
-      "mobile_phone":""
-    },
-    ...
-    ]
+  "_relations": {
+    "users":[
+      {
+        "id":4,
+        "organization_id":1,
+        "role":"physician",
+        "status":"active",
+        "first_name":"Logo",
+        "middle_initial":null,
+        "last_name":"Test",
+        "email":"kim.hatcher+logo@roundingwell.com",
+        "activity_emails":true,
+        "login":"kim.hatcher+logo@roundingwell.com",
+        "salt":"d5736019cf664a68c8ff9bd94d88facd",
+        "mobile_phone":""
+      },
+      ...
+     ]
+  }
 }
 ```
   
@@ -127,37 +129,41 @@ Example for a call to get an inbox entry. Contains embedded patient, interaction
   "organization_patient_id":18,
   "created":"2013-04-12 16:57:33.7514",
   "read":null,
-  "patient": {
-      "id":"18",
-      "first_name":"Yay",
-      "last_name":"Hopefully",
-      "organization_patient_id":"18"
-    },
-  "interaction": {
-    "id":"4",
-    "user_id":"1",
-    "patient_risk_id":"1",
-    "type":"comment",
-    "type_category":"",
-    "comment":"I like :::4::: !",
-    "close_risk":"0",
-    "created":"2013-04-12 16:57:33.642038",
-    "user": {
-        "id":"1",
-        "organization_id":"1",
-        "role":"nurse",
-        "status":"active",
-        "first_name":"Man",
-        "last_name":"Ager",
-        "email":"exmanager@roundingwell.com",
-        "activity_emails":"1",
-        "login":"exmanager@roundingwell.com",
-        "pass":"$2a$08$G\/YlFYIl3LRxeJlOp4DWiu7dplI3Rmf90W9jKZL8nERDlq.wY9ijC",
-        "salt":"0c821f675f132d790b3f25e79da739a7",
-        "permissions":"{\"manage_users\":1,\"view_messages\":1}"
-    },
-    "message_id":null,
-    "archived":null
+  "_relations": {
+    "patient": {
+        "id":"18",
+        "first_name":"Yay",
+        "last_name":"Hopefully",
+        "organization_patient_id":"18"
+      },
+    "interaction": {
+      "id":"4",
+      "user_id":"1",
+      "patient_risk_id":"1",
+      "type":"comment",
+      "type_category":"",
+      "comment":"I like :::4::: !",
+      "close_risk":"0",
+      "created":"2013-04-12 16:57:33.642038",
+      "message_id":null,
+      "archived":null,
+      "_relations": {
+        "user": {
+          "id":"1",
+          "organization_id":"1",
+          "role":"nurse",
+          "status":"active",
+          "first_name":"Man",
+          "last_name":"Ager",
+          "email":"exmanager@roundingwell.com",
+          "activity_emails":"1",
+          "login":"exmanager@roundingwell.com",
+          "pass":"$2a$08$G\/YlFYIl3LRxeJlOp4DWiu7dplI3Rmf90W9jKZL8nERDlq.wY9ijC",
+          "salt":"0c821f675f132d790b3f25e79da739a7",
+          "permissions":"{\"manage_users\":1,\"view_messages\":1}"
+        }
+      }
+    }
   }
 }
 ```
@@ -235,8 +241,10 @@ $this->access_log(array(1), "", array('first_name','last_name'), array('interact
 
 ## <a name='orm-vs-db'>ORM vs DB Queries</a>
 
-ORMs are pretty and concise for manipulating and creating rows in the db. They are heavy overhead and provide little benefit when trying to gather large result sets together to return. So, in general:
+ORMs are pretty and concise for manipulating and creating rows in the db. If all you need is an array of rows, DB queries is the way to go. So, in general:
 
 When dealing with gathering potentially large sets of information: DB queries
 
 When you want to create/manipulate one db row: ORM 
+
+If you want to use ORM to get sets of data that include joins, ensure that you are getting eager rather than lazy loading sub objects. 
