@@ -13,6 +13,7 @@
 ## <a name='strings'>Strings</a>
 
   - **String columns are defined as text unless there is a standard domain-specific length requirement**
+  
   (i.e. emails have a max of 320)  
   http://people.planetpostgresql.org/dfetter/index.php?/archives/24-VARCHARn-Considered-Harmful.html  
   and counter argument: http://www.postgresonline.com/journal/archives/154-In-Defense-of-varcharx.html
