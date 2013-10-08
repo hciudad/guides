@@ -25,7 +25,7 @@ Performance:
 
 ## <a name='urls'>Urls</a>
 
-  - **API urls should be descriptive**
+  - **API urls should be descriptive for readability and so apache logs stay informative**
 
   Bad: gateway/get (xdata: {model: user, id: 1})
 
@@ -92,9 +92,14 @@ Other api calls exist when the standard set cannot satisfy.
 
 ## <a name='standard-response'>Standard Response</a>
 
-All objects returned should be true json representations of that object's non phi fields. PHI fields are included only when necessary or specifically requested. 
-Objects can be embedded within their referencing parent object via a _relations attribute.
-Any json encoded attributes should be decoded into hash form (json_decode($item, true)). 
+Current style: A json object is returned, blending object fields and any additional meta or relationships. 
+
+Future: 
+* All objects returned should be true json representations of that object's non phi fields. 
+* PHI fields are included only when necessary or specifically requested. 
+* Objects can be embedded within their referencing parent object via the _related or _related_collections attribute.
+* Any json encoded attributes should be decoded into hash form (json_decode($item, true)).
+* Any calculated field (next checkin date, days since discharge, etc) should be returned in a _meta attribute, not mixed in with model fields
 
 Example for a call to get response answers for a checkin (has a json attribute, no embedded objects, no phi):
 
@@ -146,7 +151,7 @@ Example for a call to get a group. Contains an embedded list of users associated
   "organization_id":1,
   "name":"Example Group",
   "meta_json":null,
-  "_relations": {
+  "_related_collections": {
     "users":[
       {
         "id":4,
@@ -168,7 +173,8 @@ Example for a call to get a group. Contains an embedded list of users associated
 }
 ```
   
-Example for a call to get an inbox entry. Contains embedded patient, interaction and user objects. Patient object is limited to only those phi fields necessary. 
+Example for a call to get an inbox entry. Contains embedded patient, interaction and user objects. 
+Patient object is limited to only those phi fields that were necessary. 
 
 ```php
 {
@@ -179,12 +185,15 @@ Example for a call to get an inbox entry. Contains embedded patient, interaction
   "organization_patient_id":18,
   "created":"2013-04-12 16:57:33.7514",
   "read":null,
-  "_relations": {
+  "_related": {
     "patient": {
         "id":"18",
         "first_name":"Yay",
         "last_name":"Hopefully",
-        "organization_patient_id":"18"
+        "organization_patient_id":"18",
+        "_meta": {
+            "days_since_discharge": 6
+        }
       },
     "interaction": {
       "id":"4",
@@ -197,7 +206,7 @@ Example for a call to get an inbox entry. Contains embedded patient, interaction
       "created":"2013-04-12 16:57:33.642038",
       "message_id":null,
       "archived":null,
-      "_relations": {
+      "_related": {
         "user": {
           "id":"1",
           "organization_id":"1",
