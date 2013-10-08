@@ -2,13 +2,63 @@
 
 ## <a name='TOC'>Table of Contents</a>
 
+Basics:
+  1. [Urls](#urls)  
+  1. [Validation](#validation)
+  1. [Errors](#errors)
+
+
+More Detail:
   1. [Where API Calls Go](#api-location)  
   1. [Standard Calls](#standard-calls)  
   1. [Standard Response](#standard-response)  
   1. [API Parameters](#api-parameters)  
+
+PHI: 
   1. [Decryption](#decryption)
   1. [You Decrypt it You Log it](#decrypt-and-log)
+
+Performance:
   1. [ORM vs DB Queries](#orm-vs-db)
+
+
+
+## <a name='urls'>Urls</a>
+
+  - **API urls should be descriptive**
+
+  Bad: gateway/get (xdata: {model: user, id: 1})
+
+  Good: user/get/1
+
+## <a name='validation'>Validation</a>
+
+  - **There should be one consistent place to see/adjust requirements for api input. Input is checked before any other work is done**
+
+  Bad: rules sprinkled throughout controllers and models.
+
+  Bad: rules **only** enforced on save actions of models (additional model checks are fine, but should not be first line)
+  
+
+  Good example: all rules for an api call are defined in classes/validation/{controller name}.php Those rules are checked before the controller begins to work.
+
+## <a name='errors'>Errors</a>
+
+  - **ALL errors should be of a consistent format, using proper response codes, with actionable detail in the body.**
+
+  Bad response: '' (status code 200)
+
+  Bad response: '' (status code 500)
+
+  Bad response: operation failed (status code 400)
+
+  Bad response: last name cannot be empty (status code 400)
+  
+  
+  Good response: {last_name: "not empty", first_name: "not empty"} (status code 400)
+
+  Good response: {id: "not found"} (status code 404)
+ 
 
 ## <a name='api-location'>Where API Calls Go</a>
 
