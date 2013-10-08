@@ -101,6 +101,26 @@ Future:
 * Any json encoded attributes should be decoded into hash form (json_decode($item, true)).
 * Any calculated field (next checkin date, days since discharge, etc) should be returned in a _meta attribute, not mixed in with model fields
 
+Brief template (in json format):
+```javascript
+{
+   core_attr_1: ,
+   core_attr_2: , 
+   core_attr_json: ,
+   core_attr: ,
+   _meta: {
+       helpful: ,
+       generated: , 
+   }
+   _related: {
+       'relat_name': { recursion }
+   }
+   _related_collections: {
+       'relat_name': [ { recursion }, {recursion} ]
+   }
+}
+```
+
 Example for a call to get response answers for a checkin (has a json attribute, no embedded objects, no phi):
 
 ```php
