@@ -2,13 +2,17 @@
 
 ## <a name='TOC'>Table of Contents</a>
 
-  1. [Code Style Guide](#code-style-guide)
+### Frontend:
   1. [Javascript Style Guide](#javascript-style-guide)
   1. [Javascript Organization](#javascript-organization)
   1. [LESS/CSS Style Guide](#lesscss-style-guide)
   1. [LESS/CSS Organization](#lesscss-organization)
   1. [Font Icon](#font-icon)
   1. [Design Specifications](#design-specifications)
+
+### Backend:
+  1. [Code Style Guide](#code-style-guide)
+  1. [Organization](#backend-organization)
 
 ## <a name='code-style-guide'>Code Style Guide</a>
 
