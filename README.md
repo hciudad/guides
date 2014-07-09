@@ -2,6 +2,10 @@
 
 ## <a name='TOC'>Table of Contents</a>
 
+### Backend:
+  1. [Code Style Guide](#code-style-guide)
+  1. [Organization](#backend-organization)
+
 ### Frontend:
   1. [Javascript Style Guide](#javascript-style-guide)
   1. [Javascript Organization](#javascript-organization)
@@ -9,10 +13,6 @@
   1. [LESS/CSS Organization](#lesscss-organization)
   1. [Font Icon](#font-icon)
   1. [Design Specifications](#design-specifications)
-
-### Backend:
-  1. [Code Style Guide](#code-style-guide)
-  1. [Organization](#backend-organization)
 
 ## <a name='code-style-guide'>Code Style Guide</a>
 
@@ -23,6 +23,15 @@
 Taken from style guides for: airbnb, kohana, pear
 
 **[[⬆]](#TOC)**
+
+## <a name='backend-organization'>Code Organization</a>
+
+[Code Organization Guide](https://github.com/RoundingWell/guides/blob/master/organization.md)
+
+What goes where in which class? 
+
+**[[⬆]](#TOC)**
+
 ## <a name='javascript-style-guide'>Javascript Style Guide</a>
 
 [RoundingWell Javascript Style Guide](https://github.com/RoundingWell/guides/blob/master/javascript.md)
