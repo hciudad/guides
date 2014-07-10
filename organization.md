@@ -1,6 +1,6 @@
 # RoundingWell Code Organization Guide
 
-*A better than nothing approach to code organization.*
+*A "better than nothing" approach to code organization.*
 
 Taken from MVC and DDD concepts. 
 
