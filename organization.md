@@ -8,16 +8,16 @@ Taken from MVC and DDD concepts.
 
 ### By Layer
   * [Application Layers (kohana)](#app)
-    * [classes/validation](#appvalidation)  
-    * [classes/controller](#appcontroller)
-    * [classes/model](#appmodel)
-    * [classes/service](#appservice)
+    * [Validation (classes/validation)](#appvalidation)  
+    * [Controllers (classes/controller)](#appcontroller)
+    * [Models (classes/model)](#appmodel)
+    * [Services (classes/service)](#appservice)
   * [Domain Layers (POP classes)](#domain)
-    * [Repositories](#domrepo)
-    * [Values](#domvalue)
-    * [Entities](#domentity)
-    * [Services](#domservice)
-    * [Permissions](#dompermissions)
+    * [Repositories (classes/domain/repo)](#domrepo)
+    * [Values (classes/domain/value)](#domvalue)
+    * [Entities (classes/domain/entity)](#domentity)
+    * [Services (classes/domain/service)](#domservice)
+    * [Permissions (classes/domain/permission)](#dompermissions)
 
 ### By Job
   * [I have work to do that is not business specific](#app)
@@ -45,7 +45,7 @@ This layer is for all the work that needs to happen that isn't really a business
   - **Validating API input**: If at all possible, all forms of api input validation should happen in these classes. Examples: rules that require an input parameter to be a number, or to be among a list of options (though that list may be defined by the domain), the rule is specified in the validation classes.
 
 ### <a name='appcontroller'>Application Controllers (classes/controller/v2)</a>
-  - **Possible API input Validation**: Perhaps an api input can only be confirmed once a model is retrieved or other work has been done. It's only this sort of validation th at is allowed in a controller, rather than in [classes/validation](#kohvalidation). 
+  - **Possible API input Validation**: Perhaps an api input can only be confirmed once a entity is retrieved or other work has been done. It's only this sort of validation that is allowed in a controller, rather than in [classes/validation](#kohvalidation). 
 
   - **Traffic Cop**: Primary goal of a controller is to be a traffic cop. Marshalling together the necessary classes in order to actually do the job, and returning their response to the caller. 
   
