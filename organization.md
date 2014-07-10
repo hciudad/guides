@@ -38,11 +38,11 @@ Taken from MVC and DDD concepts.
 
 
 ## <a name='app'>Application Layers</a>
-This layer is for all the work that needs to happen that isn't business specific. very framework specific, and is generally the gateway towards interacting with the domain. 
+This layer is for all the work that needs to happen that isn't really business specific. It can ask the domain to answer questions and do jobs, but it should not be doing business-specific jobs on its own. This is the realm of whatever framework/orm/etc you've chosen and any other classes you need to deal with infrastructure.
 
 ### <a name='appvalidation'>Application Validation (classes/validation)</a>
 
-  - **Validating API input**: If at all possible, all forms of api input validation should happen in these classes.
+  - **Validating API input**: If at all possible, all forms of api input validation should happen in these classes. Examples: rules that require an input parameter to be a number, or to be among a list of options (though that list may be defined by the domain), the rule is specified in the validation classes.
 
 ### <a name='appcontroller'>Application Controllers (classes/controller/v2)</a>
   - **Possible API input Validation**: Perhaps an api input can only be confirmed once a model is retrieved or other work has been done. It's only this sort of validation th at is allowed in a controller, rather than in [classes/validation](#kohvalidation). 
