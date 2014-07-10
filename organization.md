@@ -74,7 +74,7 @@ The domain is the heart/brain of the product. It attempts to model the business 
 
   - **Management of all the "meta" fields**: Some domain objects need to include additional "meta" fields along with it's core set, in order to standardize responses. These fields are currently specified in the repositories and thrown in the mix on a serialize() call on the entity. 
 
-  - **BUSINESS RULES/LOGIC SHOULD BE AVOIDED IN REPOS**
+  - **biz rules should be avoided in the repos if possible**
 
 ### <a name='domvalue'>Domain Values (classes/domain/value)</a>
   - **Modeling business needs for an attribute**: Occasionally you need to model something that doesn't really "stand on it's own". Maybe you want once place that handles all the formatting needs for a phone number or a timezone. Or perhaps the value is complex (like a survey cadence) and you want to corral logic/rules for it into one place. 
