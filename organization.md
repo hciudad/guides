@@ -12,7 +12,7 @@ Taken from MVC and DDD concepts.
     * [classes/controller](#appcontroller)
     * [classes/model](#appmodel)
     * [classes/service](#appservice)
-  * [Domain Layers](#domain)
+  * [Domain Layers (POP classes)](#domain)
     * [Repositories](#domrepo)
     * [Values](#domvalue)
     * [Entities](#domentity)
