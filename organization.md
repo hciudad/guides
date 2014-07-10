@@ -6,7 +6,21 @@ Taken from MVC and DDD concepts.
 
 ## <a name='TOC'>Table of Contents</a>
 
+### By Layer
+  * [Application Layers (kohana)](#app)
+    * [classes/validation](#appvalidation)  
+    * [classes/controller](#appcontroller)
+    * [classes/model](#appmodel)
+    * [classes/service](#appservice)
+  * [Domain Layers](#domain)
+    * [Repositories](#domrepo)
+    * [Values](#domvalue)
+    * [Entities](#domentity)
+    * [Services](#domservice)
+    * [Permissions](#dompermissions)
+
 ### By Job
+  * [I have work to do that is not business specific](#app)
   * [API input validation](#appvalidation)  
   * [Advanced API input validation](#appcontroller)
   * [API request/response handling](#appcontroller)
@@ -15,41 +29,42 @@ Taken from MVC and DDD concepts.
   * [An attribute has complicated functionality](#domvalue)
   * [An attribute or simple value has business rules associated with it](#domvalue)
   * [An attribute or simple value has logic you want to be universal across the domain](#domvalue)
-
-### By Layer
-  * [Application Layers (kohana)](#app)
-    * [classes/validation](#appvalidation)  
-    * [classes/controller](#appcontroller)
-    * [classes/model](#appmodel)
-  * [Domain Layers](#domain)
-    * [Repositories](#domrepo)
-    * [Values](#domvalue)
-    * [Entities](#domentity)
-    * [Services](#domservice)
-    * [Permissions](#dompermissions)
+  * [An object has complicated functionality](#domentity)
+  * [An object has business rules associated with it](#domentity)
+  * [An object has logic you want to be universal across the domain](#domentity)
+  * [Modeling a business event or process](#domservice)
+  * [An event or process has behavior/rules specific to the business](#domservice)
+  * [You need to change/specify permissions for a requesting user on a resource](#dompermissions)
 
 
 ## <a name='app'>Application Layers</a>
+This layer is for all the work that needs to happen that isn't business specific. very framework specific, and is generally the gateway towards interacting with the domain. 
 
 ### <a name='appvalidation'>Application Validation (classes/validation)</a>
 
   - **Validating API input**: If at all possible, all forms of api input validation should happen in these classes.
 
 ### <a name='appcontroller'>Application Controllers (classes/controller/v2)</a>
-  - **Possible API input Validation**: Perhaps an api input can only be confirmed once a model is retrieved or other work has been done. It's only this sort of validation that is allowed in a controller, rather than in [classes/validation](#kohvalidation). 
+  - **Possible API input Validation**: Perhaps an api input can only be confirmed once a model is retrieved or other work has been done. It's only this sort of validation th at is allowed in a controller, rather than in [classes/validation](#kohvalidation). 
 
   - **Traffic Cop**: Primary goal of a controller is to be a traffic cop. Marshalling together the necessary classes in order to actually do the job, and returning their response to the caller. 
   
-  - **NO BUSINESS RULES OR LOGIC SHOULD BE IN CONTROLLERS**
+  - **NO BUSINESS RULES OR LOGIC**
 
 ### <a name='appmodel'>Application Models (classes/model)</a>
   - **CRUD handling for various data stores**: Whether it's writing to a db or writing to an outside API, the grunt work of this belongs in a controller.
   
   - **Direct interation with a data store**: Wherever possible, the code to directly interact with a portion of a data store (aka selects on a db, gets on an api, etc), should be corralled in a function on the relevant model.
 
-  - **NO BUSINESS RULES OR LOGIC SHOULD BE IN MODELS**
+  - **NO BUSINESS RULES OR LOGIC**
+
+### <a name='appservice'>Application Service (classes/service)</a>
+  - **classes to handle infrastructure needs**: You may need a class to interact with a piece of infrastructure, like sending email, or interacting with the cryption servers. These contain nothing business-specific, just code that allows for easy use of a remote service.  
+
+  - **NO BUSINESS RULES OR LOGIC**
 
 ## <a name='domain'>Domain Layers</a>
+The domain is the heart/brain of the application. Anything that is core to what roundingwell does should be abstracted down into the domain. 
 
 ### <a name='domrepo'>Domain Repositories (classes/domain/repo)</a>
   - **Bridge between the domain and the application models**: Repos are currently the only domain class we have that is allowed to directly reference classes/functions outside the domain. They are the mediator between the domain classes and the CRUD functions of the application models. 
@@ -59,4 +74,19 @@ Taken from MVC and DDD concepts.
 ### <a name='domvalue'>Domain Values (classes/domain/value)</a>
   - **Modeling business needs for an attribute**: Occasionally you need to model something that doesn't really "stand on it's own". Maybe you want once place that handles all the formatting needs for a phone number or a timezone. Or perhaps the value is complex (like a survey cadence) and you want to corral logic/rules for it into one place. 
 
-  - **BUSINESS RULES/LOGIC OK**
+  - **BUSINESS RULES/LOGIC FOR THE VALUE BELONG HERE**
+
+### <a name='domentity'>Domain Entity (classes/domain/entity)</a>
+  - **Modeling business needs for an entity**: An entity can stand on it's own, or has an identity that the business itself would recognize. A user or a patient is an obvious example, but sometimes the distinction between entities and [Domain Values](#domvalue) can be a bit fuzzy. Use your best judgement. 
+
+  - **BUSINESS RULES/LOGIC FOR THE ENTITY BELONG HERE**
+
+### <a name='domservice'>Domain Service (classes/domain/service)</a>
+  - **Modeling business needs for an event, process or service**: Occasionally there are processes/events that merit classes all their own, or perhaps a job that spans multiple entities and doesn't belong to any one of them. There you have services. A few examples might be turning on engagement. This is an event that spans the organization patient entity, the survey taker entity, and checkin Qs. This event was therefore abstracted out into it's own service class. Other examples are the process of creating a checkin, or the work to generate business statistics. Neither of these things have an "identity" nor are they an attribute of an entity. 
+
+  - **BUSINESS RULES/LOGIC FOR THE SERVICE BELONG HERE**
+
+### <a name='dompermissions'>Domain Permissions (classes/domain/permission)</a>
+  - **Specifying permissions for a requesting user to a resource**: These classes specify what a requesting user is allowed to access in the api.  
+
+  - **ONLY BUSINESS RULES FOR USER PERMISSIONS BELONG HERE**
