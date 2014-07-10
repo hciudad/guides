@@ -28,6 +28,8 @@ Taken from MVC and DDD concepts.
   * [DB queries/CRUD](#appmodel)
   * [Outside API queries/CRUD](#appmodel)
   * [You need to change/specify permissions for a requesting user on a resource](#dompermissions)
+  * [I need to add in a meta field that is returned whenever a serialized object is called for](#domrepo)
+  * [I need to provide the biz-defined displayable version of a value](#domrepo)
   * [An attribute has complicated functionality](#domvalue)
   * [An attribute or simple value has business rules associated with it](#domvalue)
   * [An attribute or simple value has logic you want to be universal across the domain](#domvalue)
@@ -69,6 +71,8 @@ The domain is the heart/brain of the product. It attempts to model the business 
 
 ### <a name='domrepo'>Domain Repositories (classes/domain/repo)</a>
   - **Bridge between the domain and the application models**: Repos are currently the only domain class we have that is allowed to directly reference classes/functions outside the domain. They are the mediator between the domain classes and the CRUD functions of the application models. 
+
+  - **Management of all the "meta" fields**: Some domain objects need to include additional "meta" fields along with it's core set, in order to standardize responses. These fields are currently specified in the repositories and thrown in the mix on a serialize() call on the entity. 
 
   - **BUSINESS RULES/LOGIC SHOULD BE AVOIDED IN REPOS**
 
