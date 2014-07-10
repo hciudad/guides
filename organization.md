@@ -21,11 +21,13 @@ Taken from MVC and DDD concepts.
 
 ### By Job
   * [I have work to do that is not business specific](#app)
+  * [I need to enforce behavior that the biz gang wants](#domain)
   * [API input validation](#appvalidation)  
   * [Advanced API input validation](#appcontroller)
   * [API request/response handling](#appcontroller)
   * [DB queries/CRUD](#appmodel)
   * [Outside API queries/CRUD](#appmodel)
+  * [You need to change/specify permissions for a requesting user on a resource](#dompermissions)
   * [An attribute has complicated functionality](#domvalue)
   * [An attribute or simple value has business rules associated with it](#domvalue)
   * [An attribute or simple value has logic you want to be universal across the domain](#domvalue)
@@ -34,7 +36,6 @@ Taken from MVC and DDD concepts.
   * [An object has logic you want to be universal across the domain](#domentity)
   * [Modeling a business event or process](#domservice)
   * [An event or process has behavior/rules specific to the business](#domservice)
-  * [You need to change/specify permissions for a requesting user on a resource](#dompermissions)
 
 
 ## <a name='app'>Application Layers</a>
@@ -74,19 +75,11 @@ The domain is the heart/brain of the product. It attempts to model the business 
 ### <a name='domvalue'>Domain Values (classes/domain/value)</a>
   - **Modeling business needs for an attribute**: Occasionally you need to model something that doesn't really "stand on it's own". Maybe you want once place that handles all the formatting needs for a phone number or a timezone. Or perhaps the value is complex (like a survey cadence) and you want to corral logic/rules for it into one place. 
 
-  - **BUSINESS RULES/LOGIC FOR THE VALUE BELONG HERE**
-
 ### <a name='domentity'>Domain Entity (classes/domain/entity)</a>
   - **Modeling business needs for an entity**: An entity can stand on it's own, or has an identity that the business itself would recognize. A user or a patient is an obvious example, but sometimes the distinction between entities and [Domain Values](#domvalue) can be a bit fuzzy. Use your best judgement. 
 
-  - **BUSINESS RULES/LOGIC FOR THE ENTITY BELONG HERE**
-
 ### <a name='domservice'>Domain Service (classes/domain/service)</a>
-  - **Modeling business needs for an event, process or service**: Occasionally there are processes/events that merit classes all their own, or perhaps a job that spans multiple entities and doesn't belong to any one of them. There you have services. A few examples might be turning on engagement. This is an event that spans the organization patient entity, the survey taker entity, and checkin Qs. This event was therefore abstracted out into it's own service class. Other examples are the process of creating a checkin, or the work to generate business statistics. Neither of these things have an "identity" nor are they an attribute of an entity. 
-
-  - **BUSINESS RULES/LOGIC FOR THE SERVICE BELONG HERE**
+  - **Modeling business needs for an event, process or service**: Occasionally there are processes/events that merit classes all their own, or perhaps a job that spans multiple entities and doesn't belong to any one of them. There you have services. A few examples might be turning on engagement. This is an event that spans the organization patient entity, the survey taker entity and checkin Qs. This event was therefore abstracted out into it's own service class. Other examples are the process of creating a checkin, or the work to generate business statistics. Neither of these things have an "identity" nor are they an attribute of an entity. 
 
 ### <a name='dompermissions'>Domain Permissions (classes/domain/permission)</a>
   - **Specifying permissions for a requesting user to a resource**: These classes specify what a requesting user is allowed to access in the api.  
-
-  - **ONLY BUSINESS RULES FOR USER PERMISSIONS BELONG HERE**
