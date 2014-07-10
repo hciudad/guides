@@ -41,7 +41,7 @@ Taken from MVC and DDD concepts.
 
 
 ## <a name='app'>Application Layers</a>
-This layer is for all the work that needs to happen that isn't really a business (domain) rule. The App layer asks the domain to answer questions and do jobs, it does not attempt to do the work on it's own. This is the realm of whatever framework/orm/etc you've chosen and any other classes you need to deal with infrastructure. For example, a patient is stored in the database, and the basic CRUD code to interact with that DB row belongs in the Application ([models](#appmodel)). However, the business rule that all requests for a patient be logged should be documented and enforced at the domain level. 
+This layer is for all the work that needs to happen that isn't really a business (domain) rule. The App layer asks the domain to answer questions and do jobs, it doesn't attempt to do the work on it's own. This is the realm of whatever framework/orm/etc you've chosen and any other classes you need to deal with infrastructure. For example, a patient is stored in the database, and the basic CRUD code to interact with that DB row belongs in the Application ([models](#appmodel)). However, the business rule that all requests for a patient be logged should be documented and enforced at the domain level. 
 
 ### <a name='appvalidation'>Application Validation (classes/validation)</a>
 
