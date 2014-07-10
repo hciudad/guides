@@ -38,7 +38,7 @@ Taken from MVC and DDD concepts.
 
 
 ## <a name='app'>Application Layers</a>
-This layer is for all the work that needs to happen that isn't really business specific. It can ask the domain to answer questions and do jobs, but it should not be doing business-specific jobs on its own. This is the realm of whatever framework/orm/etc you've chosen and any other classes you need to deal with infrastructure.
+This layer is for all the work that needs to happen that isn't really a business (domain) rule. The App layer asks the domain to answer questions and do jobs, **it does not attempt to do the work on it's own**. This is the realm of whatever framework/orm/etc you've chosen and any other classes you need to deal with infrastructure. For example, a patient is stored in the database, and the basic CRUD code to interact with that DB row belongs in the Application ([models](#appmodel) to be exact). However, the business rule that all requests for a patient be logged should be documented and enforced at the domain level. 
 
 ### <a name='appvalidation'>Application Validation (classes/validation)</a>
 
@@ -64,7 +64,7 @@ This layer is for all the work that needs to happen that isn't really business s
   - **NO BUSINESS RULES OR LOGIC**
 
 ## <a name='domain'>Domain Layers</a>
-The domain is the heart/brain of the application. Anything that is core to what roundingwell does should be abstracted down into the domain. 
+The domain is the heart/brain of the product. It attempts to model the business domain itself, using business-familiar terms and concepts. It should be written in plain old php classes, avoiding references to outside dependencies, such that it could (with minimal effort) be usable by different workers (ex: test suites) or a different application environment (like if you changed frameworks). Anything that is core to what roundingwell does should be abstracted down into the domain. 
 
 ### <a name='domrepo'>Domain Repositories (classes/domain/repo)</a>
   - **Bridge between the domain and the application models**: Repos are currently the only domain class we have that is allowed to directly reference classes/functions outside the domain. They are the mediator between the domain classes and the CRUD functions of the application models. 
