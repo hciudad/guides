@@ -4,7 +4,6 @@
 
 ### Backend:
   1. [Code Style Guide](#code-style-guide)
-  1. [Organization](#backend-organization)
 
 ### Frontend:
   1. [Javascript Style Guide](#javascript-style-guide)
@@ -21,14 +20,6 @@
 *A mostly reasonable approach to code style*
 
 Taken from style guides for: airbnb, kohana, pear
-
-**[[⬆]](#TOC)**
-
-## <a name='backend-organization'>Code Organization</a>
-
-[Code Organization Guide](https://github.com/RoundingWell/guides/blob/master/organization.md)
-
-What goes where in which class? 
 
 **[[⬆]](#TOC)**
 
